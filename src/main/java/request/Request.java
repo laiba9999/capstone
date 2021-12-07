@@ -35,4 +35,13 @@ public class Request {
     public void setQuantity_needed(Integer quantity_needed) {
         this.quantity_needed = quantity_needed;
     }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "id=" + id +
+                ", donationType='" + donationType + '\'' +
+                ", quantity_needed=" + quantity_needed +
+                '}';
+    }
 }
