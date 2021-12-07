@@ -1,4 +1,4 @@
 package hub;
 
-public class HubDAO {
+public interface HubDAO {
 }
