@@ -1,5 +1,7 @@
 package request;
 
+import java.util.Objects;
+
 public class Request {
 
     private Integer id;
@@ -37,11 +39,26 @@ public class Request {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Request request = (Request) o;
+        return Objects.equals(id, request.id) && Objects.equals(donationType, request.donationType) && Objects.equals(quantity_needed, request.quantity_needed);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, donationType, quantity_needed);
+    }
+
+    @Override
     public String toString() {
         return "Request{" +
                 "id=" + id +
                 ", donationType='" + donationType + '\'' +
                 ", quantity_needed=" + quantity_needed +
                 '}';
+
+
     }
 }

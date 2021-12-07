@@ -1,5 +1,7 @@
 package donation;
 
+import java.util.Objects;
+
 public class Donation {
     private Integer id;
     private Integer user_id;
@@ -53,5 +55,18 @@ public class Donation {
                 ", donation_quantity=" + donation_quantity +
                 ", request_id=" + request_id +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Donation donation = (Donation) o;
+        return Objects.equals(id, donation.id) && Objects.equals(user_id, donation.user_id) && Objects.equals(donation_quantity, donation.donation_quantity) && Objects.equals(request_id, donation.request_id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user_id, donation_quantity, request_id);
     }
 }

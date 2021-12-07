@@ -1,5 +1,7 @@
 package hub;
 
+import java.util.Objects;
+
 public class Hub {
     private Integer id;
     private String name;
@@ -36,12 +38,26 @@ public class Hub {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hub hub = (Hub) o;
+        return Objects.equals(id, hub.id) && Objects.equals(name, hub.name) && Objects.equals(location, hub.location);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, location);
+    }
+
+    @Override
     public String toString() {
         return "Hub{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 '}';
+
     }
 }
 
